@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Island Hopper — Skyline Run</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #0a1622;
+    overflow: hidden;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  #wrap {
+    position: relative;
+    width: min(1280px, 100vw);
+    aspect-ratio: 1280 / 720;
+    max-height: 100vh;
+  }
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #1c4f9e;
+  }
+  #fallback {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: #f4f8ff;
+    background: #0a1622;
+    text-align: center;
+    padding: 2em;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+  <div id="wrap">
+    <canvas id="game" width="1280" height="720"></canvas>
+    <div id="fallback">Island Hopper needs JavaScript and a canvas-capable browser.</div>
+  </div>
+  <script>
+    if (!document.getElementById('game').getContext) {
+      document.getElementById('fallback').style.display = 'flex';
+    }
+  </script>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
